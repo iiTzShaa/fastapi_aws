@@ -50,8 +50,8 @@ jobs:
       # Step 7: Add API files to the zip
       - name: Add API files to Zip file
         run: |
-          cd ${GITHUB_WORKSPACE}
-          zip -g api.zip -r api
+          cd ${GITHUB_WORKSPACE}/api
+          zip -g ../api.zip -r *
 
 
       # Step 8: Upload artifact
