@@ -39,7 +39,7 @@ jobs:
       - name: Run tests
         run: |
           source venv/bin/activate
-          pytest --maxfail=5 --disable-warnings --cov=. 
+          pytest 
 
       # Step 6: Create archive of dependencies
       - name: Create archive of dependencies
