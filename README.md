@@ -25,7 +25,8 @@ Make sure you have the following installed and configured:
    pip install fastapi uvicorn
 
 
-🚀 Setup and Deployment
+## 🚀 Setup and Deployment
+
 1️⃣ Create a FastAPI Application
 Create a main.py file with the following content:
 
@@ -38,6 +39,8 @@ app = FastAPI()
 @app.get("/")
 def read_root():
     return {"message": "Hello from FastAPI on Lambda!"}
+
+    
 2️⃣ Package the Application
 Ensure the file structure is as follows:
 
@@ -50,6 +53,8 @@ Package your code into a zip file:
 bash
 Copy
 zip -r api.zip main.py
+
+
 3️⃣ Upload the Package to S3
 Use the AWS CLI to upload the zip file to your S3 bucket:
 
