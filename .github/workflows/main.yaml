@@ -32,24 +32,25 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+          pip install --upgrade pip
           pip install -r requirements.txt
 
       # Step 5: Run tests
       - name: Run tests
         run: |
           source venv/bin/activate
-          pytest 
+          pytest --maxfail=5 --disable-warnings --cov=. 
 
       # Step 6: Create archive of dependencies
       - name: Create archive of dependencies
         run: |
-          cd ./venv/lib/python3.8/site-packages
+          cd ./venv/lib/python3.9/site-packages
           zip -r9 ${GITHUB_WORKSPACE}/api.zip .
 
       # Step 7: Add API files to the zip
       - name: Add API files to Zip file
         run: |
-          cd ./api && zip -g ../api.zip -r .
+          cd ${GITHUB_WORKSPACE} && zip -g ./api.zip -r ./api
 
       # Step 8: Upload artifact
       - name: Upload artifact
